@@ -41,11 +41,10 @@ while continuous == 'S':
             gender_student = input("Digite o sexo: ")
             choose_subject = ""
 
-            print("\n")
             for subject in subjects:
-                print(f"Disciplina: {subject}")
+                print(f"\nDisciplina: {subject}")
 
-                add_subject = input("\nAdicionar disciplina (S/N):").upper()
+                add_subject = input("\nAdicionar disciplina (S/N): ").upper()
 
                 if(add_subject == 'S'):
                     choose_subject = subject.name
@@ -63,7 +62,6 @@ while continuous == 'S':
             choose_teacher = ''
             choose_subject = ''
 
-            print("\n")
             for student in students:
                 print(student)
 
@@ -72,7 +70,6 @@ while continuous == 'S':
                 if(add_student == 'S'):
                     list_students.append(student.name)
 
-            print("\n")
             for teacher in teachers:
                 print(teacher)
 
@@ -91,14 +88,15 @@ while continuous == 'S':
         case 5:
             student_choose = ''
 
-            print("\n")
             for student in students:
                 print(student)
 
-                add_student = input("\nMatricular este aluno (S/N)?").upper()
+                add_student = input("\nMatricular este aluno (S/N): ").upper()
 
                 if(add_student == 'S'):
                     student_choose = student.name
+                    
+                    break
 
             school_enrollment_item = SchoolEnrollment(student_choose)
 
@@ -110,4 +108,4 @@ while continuous == 'S':
             pass
 
 
-    continuous = input("Deseja continuar (S/N)? ").upper()
+    continuous = input("\nDeseja continuar (S/N)? ").upper()
