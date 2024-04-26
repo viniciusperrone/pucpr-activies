@@ -11,3 +11,9 @@ class Student:
         self.name = name
         self.age = age
         self.gender = gender
+
+    def convert_to_dict(self):
+        return { "name": self.name, "age": self.age, "gender": self.gender }
+
+    def __str__(self):
+        return self.name
