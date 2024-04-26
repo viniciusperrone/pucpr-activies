@@ -2,6 +2,7 @@ from student import Student
 from teacher import Teacher
 from subject import Subject
 from school_class import SchoolClass
+from school_enrollment import SchoolEnrollment
 
 from menu import menu_main
 
@@ -9,6 +10,7 @@ students = []
 subjects = []
 teachers = []
 school_class = []
+school_enrollment = []
 
 continuous = 'S'
 
@@ -41,14 +43,14 @@ while continuous == 'S':
 
             print("\n")
             for subject in subjects:
-                print(subject)
+                print(f"Disciplina: {subject}")
 
-                add_subject = input("\nAdicionar disciplina: ").upper()
+                add_subject = input("\nAdicionar disciplina (S/N):").upper()
 
                 if(add_subject == 'S'):
                     choose_subject = subject.name
 
-                    print("\nDisciplina adicionada.\n")
+                    print("\nDisciplina adicionada.")
 
                     break
 
@@ -61,6 +63,7 @@ while continuous == 'S':
             choose_teacher = ''
             choose_subject = ''
 
+            print("\n")
             for student in students:
                 print(student)
 
@@ -69,6 +72,7 @@ while continuous == 'S':
                 if(add_student == 'S'):
                     list_students.append(student.name)
 
+            print("\n")
             for teacher in teachers:
                 print(teacher)
 
@@ -80,7 +84,27 @@ while continuous == 'S':
 
                     break
                 
-            school_class = SchoolClass(list_students, choose_teacher, choose_subject)
+            school_class_item = SchoolClass(list_students, choose_teacher, choose_subject)
+
+            school_class.append(school_class_item)
+        
+        case 5:
+            student_choose = ''
+
+            print("\n")
+            for student in students:
+                print(student)
+
+                add_student = input("\nMatricular este aluno (S/N)?").upper()
+
+                if(add_student == 'S'):
+                    student_choose = student.name
+
+            school_enrollment_item = SchoolEnrollment(student_choose)
+
+            school_enrollment.append(school_enrollment_item)
+
+            print(school_enrollment_item)
 
         case _:
             pass

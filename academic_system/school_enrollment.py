@@ -14,3 +14,6 @@ class SchoolEnrollment:
     
     def generate_random_identifier(self):
         return random.randint(1000, 9999)
+    
+    def __str__(self) -> str:
+        return f"{self.identifier} - {self.student}"
