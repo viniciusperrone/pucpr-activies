@@ -37,9 +37,22 @@ while continuous == 'S':
             name_teacher = input("Digite o nome: ")
             age_student = int(input("Digite a idade: "))
             gender_student = input("Digite o sexo: ")
-            subject_teacher = input("Digite a disciplina: ")
+            choose_subject = ""
 
-            teacher = Teacher(name_teacher, age_student, gender_student, subject_teacher)
+            print("\n")
+            for subject in subjects:
+                print(subject)
+
+                add_subject = input("\nAdicionar disciplina: ").upper()
+
+                if(add_subject == 'S'):
+                    choose_subject = subject.name
+
+                    print("\nDisciplina adicionada.\n")
+
+                    break
+
+            teacher = Teacher(name_teacher, age_student, gender_student, choose_subject)
 
             teachers.append(teacher)
         
@@ -68,7 +81,7 @@ while continuous == 'S':
                     break
                 
             school_class = SchoolClass(list_students, choose_teacher, choose_subject)
-            
+
         case _:
             pass
 
