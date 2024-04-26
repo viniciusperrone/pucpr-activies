@@ -18,3 +18,9 @@ class SchoolClass:
     
     def generate_random_identifier(self):
         return random.randint(1000, 9999)
+
+    def convert_to_dict(self):
+        return { "students": self.students, "identifier": self.identifier, "teachers": self.teachers, "subject": self.subject }
+
+    def __str__(self) -> str:
+        return f"{self.identifier} - {self.subject}"
