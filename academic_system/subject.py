@@ -1,9 +1,8 @@
 
 """
     The Subject class will have following fields:
-        - Full Name
-        - Age
-        - Gender
+        - Name
+        - Workload
 """
 
 class Subject:
