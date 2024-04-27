@@ -6,7 +6,6 @@ Sistema PUC
 3. Professor
 4. Turma
 5. Matrícula
-
 """
 
 MENU_MODULE_TEXT = """
@@ -16,7 +15,6 @@ Sistema PUC
 2. Listar
 3. Excluir
 4. Alterar
-
 """
 
 MENU_SCHOOL_CLASS_UPDATE_TEXT = """
