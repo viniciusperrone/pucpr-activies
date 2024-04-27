@@ -152,6 +152,12 @@ while continuous == 'S':
 
                     case 2:
                         list_school_enrollment(school_enrollment)
+
+                    case 3:
+                        delete_school_enrollment(school_enrollment)
+                    
+                    case 4:
+                        update_school_enrollment(school_enrollment)
                         
                     case _:
                         pass
