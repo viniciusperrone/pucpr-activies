@@ -41,16 +41,12 @@ def menu_item():
 
     choose_item = int(input("Digite sua opção: "))
 
-    print("\n")
-
     return choose_item
 
 def menu_update_school_class():
     print(MENU_SCHOOL_CLASS_UPDATE_TEXT)
 
     choose_item = int(input("Digite sua opção: "))
-
-    print("\n")
 
     return choose_item
 
