@@ -10,6 +10,7 @@ from actions.student import created_student, list_student, delete_student, updat
 from actions.subject import created_subject, list_subjects, delete_subject, update_subject
 from actions.teachers import create_teacher, list_teachers, delete_teacher, update_teacher
 from actions.school_class import create_school_class, list_school_class, delete_school_class, update_school_class
+from actions.school_enrollment import create_school_enrollment, list_school_enrollment, delete_school_enrollment, update_school_enrollment
 
 
 students = []
@@ -140,23 +141,21 @@ while continuous == 'S':
                 continuos_item = input("\nDeseja continuar neste módulo (S/N)? ").upper()
         
         case 5:
-            student_choose = ''
+            continuos_item = 'S'
 
-            for student in students:
-                print(student)
+            while continuos_item == 'S':
+                answer_item = menu_item()
 
-                add_student = input("\nMatricular este aluno (S/N): ").upper()
+                match answer_item:
+                    case 1:
+                        create_school_enrollment(students, school_enrollment)
 
-                if(add_student == 'S'):
-                    student_choose = student.name
-                    
-                    break
+                    case 2:
+                        list_school_enrollment(school_enrollment)
+                        
+                    case _:
+                        pass
 
-            school_enrollment_item = SchoolEnrollment(student_choose)
-
-            school_enrollment.append(school_enrollment_item)
-
-            print(school_enrollment_item)
 
         case _:
             pass
