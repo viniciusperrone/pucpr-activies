@@ -37,7 +37,7 @@ def create_school_class(list_students: List[Student], list_teachers: List[Teache
     list_school_class.append(school_class_item)
 
 def list_school_class(list_school_class: List[SchoolClass]) -> None:
-    print("Lista de Turmas.\n")
+    print("\nLista de Turmas.\n")
 
     for index, school_class in enumerate(list_school_class):
         print(school_class)
