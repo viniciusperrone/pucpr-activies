@@ -1,3 +1,5 @@
+from typing import List
+
 from student import Student
 from teacher import Teacher
 from subject import Subject
@@ -12,12 +14,13 @@ from actions.teachers import create_teacher, list_teachers, delete_teacher, upda
 from actions.school_class import create_school_class, list_school_class, delete_school_class, update_school_class
 from actions.school_enrollment import create_school_enrollment, list_school_enrollment, delete_school_enrollment, update_school_enrollment
 
+from salve_data import salve_data
 
-students = []
-subjects = []
-teachers = []
-school_class = []
-school_enrollment = []
+students: List[Student] = []
+subjects: List[Teacher] = []
+teachers: List[Subject] = []
+school_class: List[SchoolClass] = []
+school_enrollment: List[SchoolEnrollment] = []
 
 student_1 = Student("Vinicius", 22, "M")
 student_2 = Student("Will", 22, "M")
@@ -158,9 +161,11 @@ while continuous == 'S':
                     
                     case 4:
                         update_school_enrollment(school_enrollment)
-                        
+
                     case _:
                         pass
+
+                continuos_item = input("\nDeseja continuar neste módulo (S/N)? ").upper()
 
 
         case _:
@@ -168,3 +173,11 @@ while continuous == 'S':
 
 
     continuous = input("\nDeseja continuar (S/N)? ").upper()
+
+students_convert_to_dict = [student.convert_to_dict() for student in students]
+subjects_convert_to_dict = [subject.convert_to_dict() for subject in subjects]
+teachers_convert_to_dict = [teacher.convert_to_dict() for teacher in teachers]
+school_class_convert_to_dict = [school_class_item.convert_to_dict() for school_class_item in school_class]
+school_enrollment_convert_to_dict = [school_enrollment_item.convert_to_dict() for school_enrollment_item in school_enrollment]
+
+salve_data(students_convert_to_dict, subjects_convert_to_dict, teachers_convert_to_dict, school_class_convert_to_dict, school_enrollment_convert_to_dict)
