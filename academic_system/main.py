@@ -1,6 +1,3 @@
-from student import Student
-from teacher import Teacher
-from subject import Subject
 from school_class import SchoolClass
 from school_enrollment import SchoolEnrollment
 
@@ -8,7 +5,7 @@ from menu import menu_main, menu_item
 
 from actions.student import created_student, list_student, delete_student, update_student
 from actions.subject import created_subject, list_subjects, delete_subject, update_subject
-from actions.teachers import create_teacher, list_teachers
+from actions.teachers import create_teacher, list_teachers, delete_teacher, update_teacher
 
 students = []
 subjects = []
@@ -72,36 +69,26 @@ while continuous == 'S':
         case 3:
             continuos_item = 'S'
 
-            match continuos_item:
-                case 1:
-                    create_teacher(teachers)
+            while continuos_item == 'S':
+                answer_item = menu_item()
 
-                case 2:
-                    list_teachers(teachers)
+                match answer_item:
+                    case 1:
+                        create_teacher(teachers, subjects)
+
+                    case 2:
+                        list_teachers(teachers)
+                        
+                    case 3: 
+                        delete_teacher(teachers)
                     
-                case _:
-                    pass
+                    case 4:
+                        update_teacher(teachers)
 
-            name_teacher = input("Digite o nome: ")
-            age_student = int(input("Digite a idade: "))
-            gender_student = input("Digite o sexo: ")
-            choose_subject = ""
-
-            for subject in subjects:
-                print(f"\nDisciplina: {subject}")
-
-                add_subject = input("\nAdicionar disciplina (S/N): ").upper()
-
-                if(add_subject == 'S'):
-                    choose_subject = subject.name
-
-                    print("\nDisciplina adicionada.")
-
-                    break
-
-            teacher = Teacher(name_teacher, age_student, gender_student, choose_subject)
-
-            teachers.append(teacher)
+                    case _:
+                        pass
+                
+                continuos_item = input("\nDeseja continuar neste módulo (S/N)? ").upper()
         
         case 4:
             list_students = []
