@@ -5,8 +5,10 @@ from school_class import SchoolClass
 from school_enrollment import SchoolEnrollment
 
 from menu import menu_main, menu_item
+
 from actions.student import created_student, list_student, delete_student, update_student
 from actions.subject import created_subject, list_subjects, delete_subject, update_subject
+from actions.teachers import create_teacher, list_teachers
 
 students = []
 subjects = []
@@ -68,6 +70,18 @@ while continuous == 'S':
                 continuos_item = input("\nDeseja continuar neste módulo (S/N)? ").upper()
 
         case 3:
+            continuos_item = 'S'
+
+            match continuos_item:
+                case 1:
+                    create_teacher(teachers)
+
+                case 2:
+                    list_teachers(teachers)
+                    
+                case _:
+                    pass
+
             name_teacher = input("Digite o nome: ")
             age_student = int(input("Digite a idade: "))
             gender_student = input("Digite o sexo: ")
