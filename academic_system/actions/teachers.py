@@ -28,10 +28,10 @@ def create_teacher(list_teachers: List[Teacher], list_subjects: List[Subject]) -
 def list_teachers(list_teachers: List[Teacher]) -> None:
     print("Lista de Professores.\n")
     for index, teacher in enumerate(list_teachers):
-        print(f"Professor [{index + 1}]")
+        print(f"{index + 1}. Professor")
         print(f"Nome: {teacher.name}")
         print(f"Idade: {teacher.age}")
-        print(f"Sexo: {teacher.gender}\n")
+        print(f"Sexo: {teacher.gender}")
         print(f"Disciplina: {teacher.subject}\n")
 
 def delete_teacher(list_teacher: List[Teacher]) -> None:
@@ -43,11 +43,11 @@ def delete_teacher(list_teacher: List[Teacher]) -> None:
 
     teacher = list_teacher[index_teacher - 1]
 
-    if index_teacher > len(teacher) or index_teacher < len(teacher):
+    if index_teacher > len(list_teacher) or index_teacher < len(list_teacher):
         print("Número de professor errado ou não existe!\n")
 
     list_teacher.remove(teacher)
-    print("\Professor removido.")
+    print("\nProfessor removido.")
 
 
 def update_teacher(list_teacher: List[Teacher]) -> None:
