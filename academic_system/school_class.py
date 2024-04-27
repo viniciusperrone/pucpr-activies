@@ -8,9 +8,10 @@
 """
 
 import random
+from typing import List
 
 class SchoolClass:
-    def __init__(self, students, teacher, subject):
+    def __init__(self, students: List[str], teacher: str, subject: str):
         self.students = students
         self.identifier = 'C' + str(self.generate_random_identifier())
         self.teacher = teacher
