@@ -8,7 +8,7 @@
 import random
 
 class SchoolEnrollment:
-    def __init__(self, student):
+    def __init__(self, student: str):
         self.student = student
         self.identifier = 'A' + str(self.generate_random_identifier())
     
