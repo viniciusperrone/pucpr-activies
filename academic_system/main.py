@@ -1,3 +1,6 @@
+from student import Student
+from teacher import Teacher
+from subject import Subject
 from school_class import SchoolClass
 from school_enrollment import SchoolEnrollment
 
@@ -6,12 +9,34 @@ from menu import menu_main, menu_item
 from actions.student import created_student, list_student, delete_student, update_student
 from actions.subject import created_subject, list_subjects, delete_subject, update_subject
 from actions.teachers import create_teacher, list_teachers, delete_teacher, update_teacher
+from actions.school_class import create_school_class, list_school_class, delete_school_class, update_school_class
+
 
 students = []
 subjects = []
 teachers = []
 school_class = []
 school_enrollment = []
+
+student_1 = Student("Vinicius", 22, "M")
+student_2 = Student("Will", 22, "M")
+student_3 = Student("Lorenzo", 22, "M")
+
+subject_1 = Subject("LTP", "60h")
+subject_2 = Subject("LPI", "60h")
+
+teacher_1 = Teacher("Marden", 48, "M", "LTP")
+teacher_2 = Teacher("Renan", 48, "M", "LPI")
+
+students.append(student_1)
+students.append(student_2)
+students.append(student_3)
+
+subjects.append(subject_1)
+subjects.append(subject_2)
+
+teachers.append(teacher_1)
+teachers.append(teacher_2)
 
 continuous = 'S'
 
@@ -91,32 +116,28 @@ while continuous == 'S':
                 continuos_item = input("\nDeseja continuar neste módulo (S/N)? ").upper()
         
         case 4:
-            list_students = []
-            choose_teacher = ''
-            choose_subject = ''
+            continuos_item = 'S'
 
-            for student in students:
-                print(student)
+            while continuos_item == 'S':
+                answer_item = menu_item()
 
-                add_student = input("\nAdicionar aluno a turma (S/N): ").upper()
+                match answer_item:
+                    case 1:
+                        create_school_class(students, teachers, school_class)
 
-                if(add_student == 'S'):
-                    list_students.append(student.name)
+                    case 2:
+                        list_school_class(school_class)
 
-            for teacher in teachers:
-                print(teacher)
+                    case 3:
+                        delete_school_class(school_class)
 
-                add_teacher = input("\nAdicionar professor a turma (S/N): ").upper()
+                    case 4:
+                        update_school_class(school_class, students, teachers)
 
-                if(add_student == 'S'):
-                    choose_teacher = teacher.name
-                    choose_subject = teacher.subject
-
-                    break
+                    case _:
+                        pass
                 
-            school_class_item = SchoolClass(list_students, choose_teacher, choose_subject)
-
-            school_class.append(school_class_item)
+                continuos_item = input("\nDeseja continuar neste módulo (S/N)? ").upper()
         
         case 5:
             student_choose = ''
