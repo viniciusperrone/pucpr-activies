@@ -14,7 +14,7 @@ from actions.teachers import create_teacher, list_teachers, delete_teacher, upda
 from actions.school_class import create_school_class, list_school_class, delete_school_class, update_school_class
 from actions.school_enrollment import create_school_enrollment, list_school_enrollment, delete_school_enrollment, update_school_enrollment
 
-from salve_data import salve_data
+from save_data import save_data
 
 students: List[Student] = []
 subjects: List[Teacher] = []
@@ -180,4 +180,4 @@ teachers_convert_to_dict = [teacher.convert_to_dict() for teacher in teachers]
 school_class_convert_to_dict = [school_class_item.convert_to_dict() for school_class_item in school_class]
 school_enrollment_convert_to_dict = [school_enrollment_item.convert_to_dict() for school_enrollment_item in school_enrollment]
 
-salve_data(students_convert_to_dict, subjects_convert_to_dict, teachers_convert_to_dict, school_class_convert_to_dict, school_enrollment_convert_to_dict)
+save_data(students_convert_to_dict, subjects_convert_to_dict, teachers_convert_to_dict, school_class_convert_to_dict, school_enrollment_convert_to_dict)
