@@ -172,7 +172,7 @@ while continuous == 'S':
             pass
 
 
-    continuous = input("\nDeseja continuar (S/N)? ").upper()
+    continuous = input("\nDeseja continuar no sistema (S/N)? ").upper()
 
 students_convert_to_dict = [student.convert_to_dict() for student in students]
 subjects_convert_to_dict = [subject.convert_to_dict() for subject in subjects]
