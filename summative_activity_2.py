@@ -372,6 +372,10 @@ def create_school_class(list_students: List[Student], list_teachers: List[Teache
         
         pass
 
+    if list_selected_students == []:
+        print("\nNenhum estudante selecionado.\n")
+
+
     for teacher in list_teachers:
         print(f"\n{teacher}")
 
@@ -384,6 +388,9 @@ def create_school_class(list_students: List[Student], list_teachers: List[Teache
             break
 
         pass
+
+    if choose_teacher == '':
+        print("\nNenhum professor selecionado.\n")
 
     school_class_item = SchoolClass(list_selected_students, choose_teacher, choose_subject)
 
@@ -537,6 +544,11 @@ def create_school_enrollment(list_students: List[Student], list_school_enrollmen
             
             break
 
+    if student_choose == '':
+        print("\nNenhum aluno foi adicionado\n")
+
+        return
+
     school_enrollment_item = SchoolEnrollment(student_choose)
 
     list_school_enrollment.append(school_enrollment_item)
@@ -631,7 +643,12 @@ while choose_option != 6:
     for option in options_text_main:
         print(option)
 
-    choose_option = int(input("\nDigite sua opção: "))
+    try:
+        choose_option = int(input("\nDigite sua opção: "))
+    except:
+        print("\nOpção inválida.\n")
+
+        break
 
     if choose_option not in [1, 2, 3, 4, 5, 6]:
         print("\nOpção inválida!")
@@ -646,7 +663,13 @@ while choose_option != 6:
         for option in options_text_module:
             print(option)
 
-        choose_option_module = int(input("\nDigite sua opção: "))
+        try:
+            choose_option_module = int(input("\nDigite sua opção: "))
+
+        except:
+            print("\nOpção inválida.\n")
+
+            break
 
         if choose_option_module not in [1, 2, 3, 4]:
             print("\nOpção inválida!")
