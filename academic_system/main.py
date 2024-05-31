@@ -3,7 +3,7 @@ from typing import List
 from student import Student
 from teacher import Teacher
 from subject import Subject
-from school_class import SchoolClass
+from academic_system.models.school_class import SchoolClass
 from school_enrollment import SchoolEnrollment
 
 from menu import menu_main, menu_item
