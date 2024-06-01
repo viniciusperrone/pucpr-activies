@@ -27,28 +27,3 @@ with col1:
 
 with col2:
     st.title("Sistema Acadêmico")
-
-def create_card(title, description):
-    card_html = f"""
-    <div style="height: 280px; background-color: transparent; border: 1px solid #f6f6f6; border-radius: 10px; padding: 8px; text-align: center; margin-bottom: 30px">
-        <h3>{title}</h3>
-        <p>{description}</p>
-    </div>
-    """
-    st.markdown(card_html, unsafe_allow_html=True)
-
-col1_card, col2_card = st.columns(2)
-
-col3_card, col4_card = st.columns(2)
-
-with col1_card:
-    create_card("Alunos", "Módulo de Alunos")
-
-with col2_card:
-    create_card("Professores", "Módulo de Alunos")
-
-with col3_card:
-    create_card("Disciplinas", "Módulo de Alunos")
-
-with col4_card:
-    create_card("Turmas", "Módulo de Alunos")
