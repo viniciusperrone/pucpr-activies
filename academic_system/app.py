@@ -2,6 +2,8 @@ import streamlit as st
 from PIL import Image
 import os
 
+from cards import generate_cards
+
 current_dir = os.path.dirname(__file__)
 
 css_path = os.path.join(current_dir, 'assets', 'css', 'global.css')
@@ -27,3 +29,6 @@ with col1:
 
 with col2:
     st.title("Sistema Acadêmico")
+
+generate_cards()
+
