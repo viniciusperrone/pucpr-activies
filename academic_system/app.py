@@ -2,16 +2,11 @@ import streamlit as st
 from PIL import Image
 import os
 
-from cards import generate_cards
-from utils.import_static_files import get_image_path
+from pages.home import home_page
 
 current_dir = os.path.dirname(__file__)
 
 css_path = os.path.join(current_dir, 'assets', 'css', 'global.css')
-
-image_path = get_image_path('logo-pucpr.png')
-
-image = Image.open(image_path)
 
 st.set_page_config(
     page_title="PUCPR | Sistema Acadêmico",
@@ -23,12 +18,13 @@ with open(css_path) as f:
 
 st.markdown(f'<style>{css}</style>', unsafe_allow_html=True)
 
-col1, col2 = st.columns([1, 3])
+if 'page' not in st.session_state:
+    st.session_state.page = "Home"
 
-with col1:
-    st.image(image, use_column_width=False, width=180)
+query_params = st.query_params
 
-with col2:
-    st.title("Sistema Acadêmico")
+if 'page' in query_params:
+    st.session_state.page = query_params['page'][0]
 
-generate_cards()
+if st.session_state.page == "Home":
+    home_page()
