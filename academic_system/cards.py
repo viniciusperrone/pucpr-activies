@@ -5,9 +5,32 @@ from utils.encode_image import generate_encoded_image
 
 def create_card(title: str, encoded_image: str):
     card_html = f"""
-    <div style="height: 200px; margin-top: 24px; padding: 8px; background-color: transparent; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); display: flex; flex-direction: column; align-items: center;">
-        <h3 style="font-size: 24px; color: #8c1717;">{title}</h3>
-        <img src="data:image/svg;base64,{encoded_image}" alt="Icon" width="100">
+    <style>
+        .card {{
+            height: 200px;
+            margin-top: 24px;
+            padding: 8px;
+            background-color: transparent;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            cursor: pointer;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }}
+        .card:hover {{
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }}
+        .card h3 {{
+            font-size: 24px;
+            color: #8c1717;
+        }}
+    </style>
+    <div class="card">
+        <h3>{title}</h3>
+        <img src="data:image/png;base64,{encoded_image}" alt="Icon" width="100">
     </div>
     """
 
